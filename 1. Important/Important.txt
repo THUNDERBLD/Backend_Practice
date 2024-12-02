@@ -1,0 +1,103 @@
+----------------------------------------IMPORTANT EXPRESS----------------------------------------------
+
+Always Remember to check the spelling of the constants or exports or .env, because i have got dozens of errors because of these.
+Always Remember that whenever you take import the exported constants from other file use full name of the directory and file, eg -> import connectDB from './db/index.js';  or  import { DB_Name } from "../constants.js"; 
+Endpoint means URL of request which is sended to the user, eg. http://localhost:8000/testing/api/v1/create-user.
+Middleware is a check/manuplating of respone in between sent request from user to server. eg -> checking weather a user is logged in or not, as u have seen in letsprogrgessify.
+In login we set the tokens by passing them as the cookies then by using that token we can verify the user by creating the auth.middleware, which will provide the verified user to the other endpoints, by serving as a middleware.
+Aggregation pipelines in MongoDB are like an assembly line for processing and transforming data in your database. They allow you to perform complex queries and data manipulations by breaking the process into steps.
+Each step in the pipeline is called a stage, and each stage performs a specific operation on the data, such as filtering, grouping, sorting, or calculating.
+
+------> Randoms
+1. Always install cors and import it in your backend like 'import cors from "cors"' then use this code 'app.use(cors())' to give access of data to the frontend.
+   what cors do is it white list the your backend url for for frontend to access the data.
+2. Always install the dotenv package then put the important data in it, like database password and ports.
+   u can call the values using 'require('dotenv').config()' then pick the value using 'process.env.PORT'
+
+
+
+# How to push the files in the git repository
+
+Remember that if you want to push the empty directory to github repository then add a empty '.gitkeep' file to that empty directory
+
+Firstly initalize the git repository using githu then using the blow command in your terminal to push it in the repository.
+command :-
+1. echo "# dele" >> README.md
+2. git init 
+3. git add README.md
+4. git commit -m "first commit"
+5. git branch -M main
+6. git remote add origin https://github.com/THUNDERBLD/repoName.git
+7. git push -u origin main
+
+if you every want to add the code/files/directories to the git repository then write the following code
+command :-
+1. git add * 
+2. git commit -m "Everytime New commits are added"  // without this command nothing will get updated in repo
+3. git push
+
+
+# Taking data from backend using fetch 
+    
+    const data1 = fetch('http://localhost:3000/api/objData')
+    .then(res => res.json())
+    .then(json => console.log(json))
+    .catch(err => console.log(err))
+
+
+# Taking data from backend using axios
+
+
+
+# Basic Express app 
+
+import express from 'express'
+// require('dotenv').config() ------> taking the environment variable values
+const app = express()
+const port = process.env.PORT || 3000
+
+const family = [
+  {
+    "name":"Ethesham Haider",
+    "position":"dad",
+    "workflow":"Business"
+  },
+  {
+    "name":"Uzma Haider",
+    "position":"mom",
+    "workflow":"House-Wife"
+  },
+  {
+    "name":"Faraz Haider",
+    "position":"son",
+    "workflow":"Student"
+  },
+  {
+    "name":"Alishan",
+    "position":"son",
+    "workflow":"Student"
+  },
+  {
+    "name":"Uzair Raza",
+    "position":"son",
+    "workflow":"Student"
+  },
+
+]
+
+app.get('/', (req, res) => {
+  res.send('Hello World, i am faraz')
+})
+app.get("/thunder", (req, res) => {
+  res.send('Hello World, i am thunder blood')
+})
+
+//showing the data of the object to the backend server
+app.get("/familyInfo", (req, res) => {
+  res.send(family)
+})
+
+app.listen(port, (req, res) => {
+  console.log(`Server running on port localhost:${port}`)
+})
+
