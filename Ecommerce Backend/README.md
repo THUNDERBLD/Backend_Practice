@@ -1,6 +1,6 @@
 .env for the backend // this data is fake and just for reference
 PORT=8000
-MONGODB_URI="mongodb+srv://ayanethasham9:something@tfortress.hahks.mongodb.net"
+MONGODB_URI="mongodb+srv://ayan9:something@tfortress.hahks.mongodb.net"
 CORS_ORIGIN=*
 ACCESS_TOKEN_SECRET=something@tfortress
 ACCESS_TOKEN_EXPIRY=1d
